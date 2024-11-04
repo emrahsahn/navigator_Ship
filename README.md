@@ -1,49 +1,49 @@
 # navigator_ship
-# Gezgin Gemi Veritabanı
+# Navigator Ship Database
 
-Bu proje, SQLite kullanarak bir gemi yönetim sistemini simüle eden bir Python uygulamasıdır. Uygulama, farklı türde gemilerin, çalışanların ve seferlerin kaydedilmesini, güncellenmesini, silinmesini ve görüntülenmesini sağlar. Uygulama, kullanıcı arayüzü için `tkinter` kütüphanesini kullanmaktadır.
+This project is a Python application simulating a ship management system using SQLite. The application allows recording, updating, deleting, and viewing different types of ships, employees, and expeditions. The application uses the `tkinter` library for the user interface.
 
-### Gemi Türleri:
-- `CRUISE_SHIP`: Yolcu gemisi
-- `OIL_SHIP`: Petrol gemisi
-- `CONTAINER_SHIP`: Konteyner gemisi
+### Ship Types:
+- `CRUISE_SHIP`: Passenger ship
+- `OIL_SHIP`: Oil tanker
+- `CONTAINER_SHIP`: Container ship
 
-### Çalışan Türleri:
-- `CAPTAIN`: Kaptan
-- `CREW`: Mürettebat
+### Employee Types:
+- `CAPTAIN`: Captain
+- `CREW`: Crew
 
-### Limana İlişkin Sınıflar:
-- `HARBOR`: Liman bilgileri
-- `VISITED_HARBORS`: Ziyaret edilen limanlar
+### Harbor-Related Classes:
+- `HARBOR`: Harbor information
+- `VISITED_HARBORS`: Visited harbors
 
-### Seferler:
-- `EXPEDITIONS`: Sefer bilgileri
+### Expeditions:
+- `EXPEDITIONS`: Expedition information
 
-### Arayüz:
-- `Kayıt Ekle`: Yeni kayıt ekler.
-- `Kayıt Sil`: Mevcut bir kaydı siler.
-- `Kayıt Güncelle`: Mevcut bir kaydı günceller.
-- `Tablo Görüntüle`: Bir tabloyu görüntüler.
-- `Kapat`: Uygulamayı kapatır.
+### Interface:
+- `Add Record`: Adds a new record.
+- `Delete Record`: Deletes an existing record.
+- `Update Record`: Updates an existing record.
+- `View Table`: Views a table.
+- `Close`: Closes the application.
 
-### Yapı:
+### Structure:
 
-#### Sınıflar:
-- `SHIP`: Ana gemi sınıfı (Kullanıcı erişemez).
-- `CRUISE_SHIP`, `OIL_SHIP`, `CONTAINER_SHIP`: Gemi türleri için alt sınıflar.
-- `EMPLOYEE`: Ana çalışan sınıfı (Kullanıcı erişemez).
-- `CAPTAIN`, `CREW`: Çalışan türleri için alt sınıflar.
-- `HARBOR`, `VISITED_HARBORS`, `EXPEDITIONS`: Liman ve seferlerle ilgili sınıflar.
+#### Classes:
+- `SHIP`: Main ship class (User cannot access).
+- `CRUISE_SHIP`, `OIL_SHIP`, `CONTAINER_SHIP`: Subclasses for ship types.
+- `EMPLOYEE`: Main employee class (User cannot access).
+- `CAPTAIN`, `CREW`: Subclasses for employee types.
+- `HARBOR`, `VISITED_HARBORS`, `EXPEDITIONS`: Classes related to harbors and expeditions.
 
-#### Fonksiyonlar:
-- `_construct_main_menu()`: Ana menüyü oluşturur.
-- `_construct_menu(action)`: Alt menüyü oluşturur.
-- `_handle_input(textBox, sampleTable, action, classType, c)`: Kullanıcıdan veri alır ve ilgili işlevi çağırır.
-- `insert_sample(sampleTable, sampleAttrs, classType, c)`: Yeni kayıt ekler.
-- `delete_sample(sampleTable, sampleAttrs, classType, c)`: Mevcut kaydı siler.
-- `update_sample(sampleTable, sampleAttrs, c)`: Mevcut kaydı günceller.
-- `display_table(sampleTable)`: Bir tabloyu görüntüler.
+#### Functions:
+- `_construct_main_menu()`: Constructs the main menu.
+- `_construct_menu(action)`: Constructs the submenu.
+- `_handle_input(textBox, sampleTable, action, classType, c)`: Takes input from the user and calls the relevant function.
+- `insert_sample(sampleTable, sampleAttrs, classType, c)`: Adds a new record.
+- `delete_sample(sampleTable, sampleAttrs, classType, c)`: Deletes an existing record.
+- `update_sample(sampleTable, sampleAttrs, c)`: Updates an existing record.
+- `display_table(sampleTable)`: Views a table.
 
-#### Veritabanı Bağlantısı:
-- `conn = sql.connect('gezginGemi.db')`: Veritabanı bağlantısını oluşturur.
-- `c = conn.cursor()`: Veritabanı imlecini oluşturur.
+#### Database Connection:
+- `conn = sql.connect('navigatorShip.db')`: Creates the database connection.
+- `c = conn.cursor()`: Creates the database cursor.
