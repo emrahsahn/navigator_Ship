@@ -1,49 +1,26 @@
-# navigator_ship
-# Navigator Ship Database
+# Ship Management System
 
-This project is a Python application simulating a ship management system using SQLite. The application allows recording, updating, deleting, and viewing different types of ships, employees, and expeditions. The application uses the `tkinter` library for the user interface.
+## Project Description
+This project is developed as part of the Database Management Systems course and is designed for the "Gezgin Ship Company" to manage voyages with different types of ships. The software manages data related to:
 
-### Ship Types:
-- `CRUISE_SHIP`: Passenger ship
-- `OIL_SHIP`: Oil tanker
-- `CONTAINER_SHIP`: Container ship
+- Ships
+- Voyages
+- Captains
+- Crew Members
+- Harbors
 
-### Employee Types:
-- `CAPTAIN`: Captain
-- `CREW`: Crew
+The company operates various types of ships including passenger ships, oil tankers, and container ships. For each ship, the system stores a unique serial number, name, weight, and year of manufacture. Additional attributes specific to each type are also stored:
+- **Passenger ships**: Passenger capacity
+- **Oil tankers**: Oil capacity in liters
+- **Container ships**: Number of containers and maximum weight capacity
 
-### Harbor-Related Classes:
-- `HARBOR`: Harbor information
-- `VISITED_HARBORS`: Visited harbors
+Each ship can embark on multiple voyages over time, with each voyage limited to one ship at a time. A minimum of two captains and one crew member is required for each voyage. The voyage records include an ID, departure date, return date, and departure harbor. A voyage can dock at multiple harbors, and the company wishes to keep records of past voyages, planned future voyages, and potential voyages.
 
-### Expeditions:
-- `EXPEDITIONS`: Expedition information
+Each harbor may be visited by multiple ships over different voyages. For each harbor, the system stores the harbor name, country, population, passport requirement, and docking fee. The harbor name and country are unique identifiers. Additionally, records of harbors that have not yet been visited but may be in the future can be added to the database.
 
-### Interface:
-- `Add Record`: Adds a new record.
-- `Delete Record`: Deletes an existing record.
-- `Update Record`: Updates an existing record.
-- `View Table`: Views a table.
-- `Close`: Closes the application.
+For captains and crew members, the system stores ID, first name, last name, address, nationality, date of birth, and hiring date. Additionally, captains have license details, and crew members have their specific roles recorded. Captains and crew members can only be assigned to one voyage at a time.
 
-### Structure:
+The project requires the development of a form-based application where users can add, delete, and update the information described above. The data should be stored in a SQL Server database and managed via object-oriented programming (OOP) principles. Classes should be created for each entity, with operations related to each entity handled through instances of these classes. Database tables should be created for each entity, ensuring data is stored correctly. All database operations should be managed within the software.
 
-#### Classes:
-- `SHIP`: Main ship class (User cannot access).
-- `CRUISE_SHIP`, `OIL_SHIP`, `CONTAINER_SHIP`: Subclasses for ship types.
-- `EMPLOYEE`: Main employee class (User cannot access).
-- `CAPTAIN`, `CREW`: Subclasses for employee types.
-- `HARBOR`, `VISITED_HARBORS`, `EXPEDITIONS`: Classes related to harbors and expeditions.
+---
 
-#### Functions:
-- `_construct_main_menu()`: Constructs the main menu.
-- `_construct_menu(action)`: Constructs the submenu.
-- `_handle_input(textBox, sampleTable, action, classType, c)`: Takes input from the user and calls the relevant function.
-- `insert_sample(sampleTable, sampleAttrs, classType, c)`: Adds a new record.
-- `delete_sample(sampleTable, sampleAttrs, classType, c)`: Deletes an existing record.
-- `update_sample(sampleTable, sampleAttrs, c)`: Updates an existing record.
-- `display_table(sampleTable)`: Views a table.
-
-#### Database Connection:
-- `conn = sql.connect('navigatorShip.db')`: Creates the database connection.
-- `c = conn.cursor()`: Creates the database cursor.
